@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class LonginPage extends StatefulWidget {
@@ -20,6 +18,7 @@ class _LonginPageState extends State<LonginPage> {
     _usernameController.text = "admin";
     _passwordController.text = "1234";
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,25 +33,29 @@ class _LonginPageState extends State<LonginPage> {
             padding: const EdgeInsets.all(32),
             height: 400,
             child: Column(
-               crossAxisAlignment: CrossAxisAlignment.stretch,
-               children: [
-                 TextField(
-                   controller: _usernameController,
-                   decoration: InputDecoration(labelText: "username"),),
-                 TextField(
-                   controller: _passwordController,
-                   decoration: InputDecoration(labelText: "password"),),
-                 SizedBox(height: 32,),
-                 ..._buildButton()
-
-               ],
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextField(
+                  controller: _usernameController,
+                  decoration: InputDecoration(labelText: "username"),
+                ),
+                TextField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(labelText: "password"),
+                ),
+                SizedBox(
+                  height: 32,
+                ),
+                ..._buildButton()
+              ],
             ),
           ),
         ),
       ),
     );
   }
-  void _handleClickLogin(){
+
+  void _handleClickLogin() {
     print("CmDev: Login (${_usernameController.text})");
   }
 
@@ -61,13 +64,9 @@ class _LonginPageState extends State<LonginPage> {
   }
 
   _buildButton() {
-      return [
-        ElevatedButton(
-            onPressed: _handleClickLogin,
-            child: Text("Login")),
-        OutlinedButton(
-            onPressed: _handleClickReset,
-            child: Text("Reset"))
-      ];
+    return [
+      ElevatedButton(onPressed: _handleClickLogin, child: Text("Login")),
+      OutlinedButton(onPressed: _handleClickReset, child: Text("Reset"))
+    ];
   }
 }
